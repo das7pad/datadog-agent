@@ -116,7 +116,7 @@ remove_custom_integrations()
 
         # List all files in the embedded dir of the datadog-agent install dir
         # which were not installed by the package and rm them.
-        grep -Fxv -f $INSTALL_DIR/embedded/.installed_by_pkg.txt $INSTALL_DIR/embedded/.all-integrations.txt | grep -v '^#' | xargs --no-run-if-empty -I '{}' rm -r $INSTALL_DIR/{}
+        grep -Fxv -f $INSTALL_DIR/embedded/.installed_by_pkg.txt $INSTALL_DIR/embedded/.all-integrations.txt | grep -v '^#' | xargs --no-run-if-empty -I '{}' rm -rf $INSTALL_DIR/{}
 
         rm $INSTALL_DIR/embedded/.all-integrations.txt
         cd $PREV_DIR
